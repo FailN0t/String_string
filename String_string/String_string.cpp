@@ -6,67 +6,32 @@
 #include <regex>
 using namespace std;
 
+string satie(string str) {
+	string str2;
+	int n = str.find_first_not_of(' ');
+	if (n == -1) {
+		return str;
+	}
 
+	for (size_t i = n; i < str.size(); i++)
+	{
+		if (i == n ) {
+			str2 += str.substr(0, n);
+		}
+			if (i != 0 and str[i] != ' ') {
+				if (str[i - 1] == ' ') {
+					str2.push_back(' ');
+				}
+				str2.push_back(str[i]);
+			}
+		}
+		
+	return str2;
+}
 
 int main()
 {
-    string str{ "abcdefgfdgsfde" };
-    cout << str[0] << endl;
-    cout << str.at(2) << endl;
-    cout << str.size() << endl;
-    cout << str.front() << endl;
-    cout << *(str.begin()) << endl;
-    for (auto it = str.begin(); it < str.end(); it++) {
-        cout << *it;
-    }
-    cout << endl;
-    cout << str.find("cde") << endl;
-    cout << str.rfind("cde") << endl;
-    cout << str.find_first_of("cde") << endl;
-    cout << str.find_last_of("cde") << endl;
-    cout << str.find_last_not_of("cdefg") << endl;
-    str.assign("Hello");
-    cout << str << endl;
-    str.clear();
-    cout << str << endl;
-    str = "dasdvasvdasdv";
-    cout << str << endl;
-    str.push_back('H');
-    cout << str << endl;
-    str.pop_back();
-    cout << str << endl;
-    str.append("Helllo");
-    cout << str << endl;
-    str += "Hello";
-    cout << str << endl;
-
-
-
-    cout << str.empty() << endl;
-    cout << str.max_size() << endl;
-    cout << str.capacity() << endl;
-
-
-    string str2{ "123.1" };
-    int n = stoi(str2);
-    long n2 = stol(str2);
-    long long n3 = stoll(str2);
-
-    float f = stof(str2);
-    double d = stod(str2);
-    cout << n << endl;
-    cout << n2 << endl;
-    cout << n3 << endl;
-
-    cout << f << endl;
-    cout << d << endl;
-
-    str = to_string(45);
-    cout << str << endl;
-
-    cout << str << "  " << str2 << endl;
-    swap(str, str2);
-    cout << str << "  " << str2 << endl;
+	cout << satie("     sadfasfd   asfdasdf     asfdsadf safd") << "!" << endl;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
